@@ -43,6 +43,12 @@ public:
 
   IntrinsicsType type() const override { return IntrinsicsType::PINHOLE; }
 
+  bool hasDistortion() const override {
+    return parameters_[RADIAL_DISTORTION_1] *
+               parameters_[RADIAL_DISTORTION_2] !=
+           0.0;
+  }
+
   double focal() const override { return parameters_[FOCAL_LENGTH]; }
 
   Eigen::Vector2d principalPoint() const override {

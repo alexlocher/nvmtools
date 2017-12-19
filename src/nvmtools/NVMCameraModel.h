@@ -40,6 +40,10 @@ public:
 
   IntrinsicsType type() const override { return IntrinsicsType::NVM_DEFAULT; }
 
+  bool hasDistortion() const override {
+    return parameters_[RADIAL_DISTORTION] != 0;
+  }
+
   double focal() const override { return parameters_[FOCAL_LENGTH]; }
   Eigen::Vector2d principalPoint() const override {
     return Eigen::Vector2d(parameters_[PRINCIPAL_POINT_X],

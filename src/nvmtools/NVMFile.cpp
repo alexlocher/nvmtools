@@ -180,10 +180,11 @@ bool NVMFile::readFile(const char *path, std::vector<NVM_Model> &models,
   if (models.size() > 0)
     models.pop_back(); // remove empty model at the back
 
-  LOG(INFO) << "read " << models.size() << " models from <" << path << ">";
+  LOG(INFO) << "read " << models.size() << " models from >" << path << "<";
   for (size_t ii = 0; ii < models.size(); ii++)
     LOG(INFO) << "Model " << ii << ": " << models[ii].cameras.size()
-              << " cameras and " << models[ii].points.size() << " points";
+              << " cameras and " << models[ii].points.size()
+              << " points [file version = " << version << "]";
 
   return models.size();
 }

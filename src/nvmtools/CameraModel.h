@@ -63,6 +63,7 @@ public:
   virtual ~CameraModel() = default;
 
   virtual IntrinsicsType type() const = 0;
+  virtual bool hasDistortion() const = 0;
   virtual double focal() const = 0;
   virtual Eigen::Vector2d principalPoint() const = 0;
 
